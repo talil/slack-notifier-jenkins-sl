@@ -6,7 +6,7 @@ void notifyStart() {
   SlackSender sender = new SlackSender()
   JenkinsStatus status = new JenkinsStatus()
 
-  def message = formatter.format 'Build started...'
+  def message = formatter.format 'Build started by user '
   def color = status.getStatusColor()
 
   sender.send message, color

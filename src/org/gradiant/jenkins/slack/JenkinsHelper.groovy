@@ -15,6 +15,17 @@ int getBuildNumber() {
     return currentBuild.number
 }
 
+String getBuildUser(){
+    wrap([$class: 'BuildUser']) {
+        def user = env.BUILD_USER
+        return user
+    }
+}
+
+//String getBuildUser(){
+//    return  env.GIT_AUTHOR_NAME
+//}
+
 
 String getAbsoluteUrl() {
     return currentBuild.absoluteUrl

@@ -8,12 +8,13 @@ String format(String title = '', String message = '', String testSummary = '') {
     def branchName = helper.getBranchName()
     def buildNumber = helper.getBuildNumber()
     def url = helper.getAbsoluteUrl()
+    def buildUser = helper.getBuildUser()
 
     def result = "${project}"
 
     if (branchName != null) result = "${result} » ${branchName}"
 
-    result = "${result} - #${buildNumber} ${title.trim()} (<${url}|Open>)"
+    result = "${result} - #${buildNumber} ${title.trim()} ${buildUser} (<${url}|Open>)"
     if (message) result = result + "\nChanges:\n\t ${message.trim()}"
     if (testSummary) result = result + "\n ${testSummary}"
 
